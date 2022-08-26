@@ -56,7 +56,6 @@ router.get('/:id',async(req,res)=>{
 router.put('/:id',async(req,res)=>{
   try {
       const post=await Post.findById(req.params.id)
-      post.id=req.body.id
       post.user_id=req.body.user_id
       post.date=req.body.date
       post.time=req.body.time
