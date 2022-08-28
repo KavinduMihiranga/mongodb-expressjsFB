@@ -19,6 +19,7 @@ con.on("open", () => {
 })
 app.use(express.json())
 
+//authorized user 
 // app.use('/users',auth, user)
 app.use('/users', user)
 app.use('/posts', posts)
