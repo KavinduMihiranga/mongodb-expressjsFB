@@ -6,7 +6,11 @@ module.exports=function(req,res,next){
     {
         const token=req.headers.authorization.split('')[1]
         if(token==null) res.sendStatus(401)
-        jwt.verify(token,process.env.TOKEN_KEY  )
+        jwt.verify(token,process.env.TOKEN_KEY,(err,login)=>{
+            if(err) res.sendStatus(403)
+            req.login=login;
+            next();
+        })
     }else{
         res.sendStatus(401)
     }

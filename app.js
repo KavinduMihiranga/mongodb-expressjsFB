@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const user = require('./routes/user')
 const posts = require('./routes/posts')
 const login = require('./routes/login')
+const auth = require('./middleware/auth')
 
 const app = express()
 const port = 4000
@@ -18,7 +19,7 @@ con.on("open", () => {
 })
 app.use(express.json())
 
-app.use('/users', user)
+app.use('/users',auth, user)
 app.use('/posts', posts)
 app.use('/login', login)
 
