@@ -12,15 +12,14 @@ router.post('/',async(req,res)=>{
         password:req.body.password,
         email:req.body.email
     })
-    try {
-      if(login.password===userModels.password&& login.email===userModels.email){
-        const response=await post.save()
-        req.json("user match")
-      }
-
-    } catch (err) {
-        res.send('err: '+err)
+    const pw="kapila$1234"
+    const email="kapila1234@gmail.com"
+    if(login.password===pw&& login.email===email){
+            res.send(pw+email)
+    }else{
+        res.send(err)
     }
+  
 })
 
 module.exports=router
