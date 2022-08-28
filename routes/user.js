@@ -7,8 +7,8 @@ const User=require('../models/user.models')
 app.use(express.json)
 
 router.get('/',async(req,res)=>{
-  const user=req.user
-  res.json(user)
+  // const user=req.user
+  // res.json(user)
     try {
         const user=await User.find()
         res.json(user)
